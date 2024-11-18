@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for message, category in messages %}
+            {% if category == 'error' %}
+                <p class="error">{{message}}</p>
+            {% else %}
+                <p class="success">{{message}}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %} -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+    {% for category,message in messages %}
+    {% if category == 'error' %}
+        <p class="error">{{message}}</p>
+    {% else %}
+        <p class="success">{{message}}</p>
+    {% endif %}
+{% endfor %}
+    {% endif %}
+
+{% endwith %}
+
+<h1 class="text text-primary">Login</h1>
+<form method="POST">
+    <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" id="email" type="email" name="email"/>
+    </div>
+    
+
+    <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" id="password" type="password" name="password"/>
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Login</button>
+    
+</form>
+{% endblock %}

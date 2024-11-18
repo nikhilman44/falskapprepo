@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>This is home</h1>
+
+<form method="POST" action="{{url_for('upload_file')}}" enctype="multipart/form-data">
+    <div class="input-group mb-3">
+        <input type="file" class="form-control" id="inputGroupFile02" name="file">
+        <input type="submit" class="input-group-text bg-warning text-light" for="inputGroupFile02" >
+    </div>
+</form>
+
+
+{% endblock %}
